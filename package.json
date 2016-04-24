@@ -1,0 +1,42 @@
+{
+  "name": "nw-boilerplate-dev",
+  "productName": "NW Boilerplate",
+  "description": "Starter for NW.js application. Out of the box ready for serious stuff.",
+  "version": "0.1.0",
+  "author": "Mr Gumby <gumby@sillywalks.com>",
+  "main": "app.html",
+  "window": {
+    "icon": "icon.png",
+    "show": true,
+    "toolbar": true,
+    "width": 1000,
+    "height": 600,
+    "min_width": 800,
+    "min_height": 400,
+    "position": "center"
+  },
+  "dependencies": {
+    "chokidar": "^1.4.3",
+    "fs-jetpack": "^0.6.4",
+    "install": "^0.6.1",
+    "node-notifier": "^4.5.0",
+    "npm": "^3.8.6",
+    "open": "0.0.5",
+    "socket.io-client": "^1.4.5"
+  },
+  "specless-cascade": {
+    "serverPort": 8787,
+    "autoReload": {
+      "all": true,
+      "html": true,
+      "css": true,
+      "js": true,
+      "assets": true
+    },
+    "appPath": "/Users/scorby/Desktop/updated-specless-cascade-app/build",
+    "gulpPath": "/node_modules/@specless/cascade",
+    "altGulpPath": "/Users/scorby/Dev/specless-cascade",
+    "useAltGulpPath": true,
+    "userPluginsFolder": "/Users/scorby/Library/Application Support/nw-boilerplate-dev/Plugins"
+  }
+}

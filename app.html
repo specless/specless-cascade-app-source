@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>NW Boilerplate</title>
+
+    <link href="./stylesheets/main.css" rel="stylesheet" type="text/css">
+
+    <!-- Scripts giving you few extra things in NW.js -->
+    <script src="vendor/nw-boilerplate/window_state.js"></script>
+    <script src="vendor/nw-boilerplate/context_menu.js"></script>
+    <script src="vendor/nw-boilerplate/external_links.js"></script>
+    <script src="vendor/nw-boilerplate/dev_helper.js"></script>
+    <script src="vendor/nw-boilerplate/env_config.js"></script>
+    <script>
+        (function () {
+            var gui = require('nw.gui');
+            var win = gui.Window.get();
+
+            // Create default menu items for OSX
+            if (process.platform === 'darwin') {
+                var mb = new gui.Menu({ type: "menubar" });
+                mb.createMacBuiltin(gui.App.manifest.productName);
+                win.menu = mb;
+            }
+        }());
+    </script>
+    <script src="vendor/jquery.js"></script>
+
+    <!-- Load real app code -->
+    <script src="vendor/require.js"></script>
+    <script>
+        requirejs(['app'], function (app) {});
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <p>
+            <h1 id="projectTitle">{{project title}}</h1>
+            <div id="projectPath">{{project path}}</div>
+        </p>
+        <p>
+            <button id="openProject">Open Project</button>
+            <button id="newProject">New Project</button>
+            <hr>
+            <button class="app-open-in">Open Project Folder</button>
+            <button class="app-preview">Preview Project</button>
+            <button id="publishProject">Publish Project</button>
+            <hr>
+            <button class="app-preview" data-target="google chrome">Preview in Chrome</button>
+            <button class="app-preview" data-target="safari">Preview in Safari</button>
+            <button class="app-preview" data-target="firefox">Preview in Firefox</button>
+            <button class="app-preview" data-target="opera">Preview in Opera</button>
+            <hr>
+            <button class="app-open-in" data-target="sublime text">Open in Sublime</button>
+            <button class="app-open-in" data-target="atom">Open in Atom</button>
+            <button class="app-open-in" data-target="brackets">Open in Brackets</button>
+            <hr>
+            <input id="serverPort" type="text"/>
+            <button id="restartServer">Restart Server</button>
+            <hr>
+            <div>Cascade Version <span id="cascadeVersion">{{version}}</span></div>
+            <div>Cascade Path <span id="cascadePath">{{cascade path}}</span></div>
+            <button id="chooseCascade">Choose Custom Cascade Compiler</button>
+            <input id="toggleCustomCascade" type="checkbox" name="toggleCustomCascade" value="false"/>
+            <button id="restartCascade">Restart App with New Settings</button>
+            <hr>
+            <div>Plugins Path<span id="pluginsPath">{{plugins path}}</span></div>
+            <button id="showPlugins">Show Plugins Folder</button>
+        </p>
+        <div class="app-hidden">
+            <input id="openDirectory" type="file" nwdirectory/>
+            <input id="newDirectory" type="file" nwsaveas/>
+        </div>
+    </div>
+
+</body>
+</html>
